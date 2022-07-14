@@ -96,7 +96,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAV] = LAYOUT_split_3x5_2( /* [> NAV <] */
     KC_ESC,  XXXXXXX,  KC_UP,   XXXXXXX,  XXXXXXX,                    KC_PSCR,  KC_HOME, KC_PGUP, XXXXXXX, KC_BSPC,
-    KC_TAB,  KC_LEFT,  KC_DOWN, KC_RIGHT, KC_MPLY,                    KC_DEL,   KC_END,  KC_PGDN, KC_RGHT, XXXXXXX,
+    KC_TAB,  KC_LEFT,  KC_DOWN, KC_RIGHT, XXXXXXX,                    KC_DEL,   KC_END,  KC_PGDN, XXXXXXX, XXXXXXX,
     KC_LCTL, MY_T1 , MY_TT, MY_TD,   XXXXXXX,                    KC_COPY,  KC_PSTE, KC_UNDO, KC_CUT,  XXXXXXX,
                                          _______, KC_LGUI,    _______, _______
   ),
@@ -113,23 +113,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        KC_ESC,  WEAPON,  _______, _______
   ),
 [_WEAP] = LAYOUT_split_3x5_2( /* [> armas <] */
-    KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,                                         KC_Y,  KC_U,  KC_I,  KC_O, KC_BSPC,
-    KC_LSFT,   KC_5,  KC_F1,  KC_F2,  KC_F3,                                      KC_H,  KC_J,  KC_K,  KC_L,  MY_SCLN,
-    KC_LCTL,   KC_F4,  KC_F5,  KC_F6,  KC_M,                                      KC_N,  KC_M,  KC_COMM, KC_DOT, RCTL_T(KC_SLSH),
-                                            _______, _______,  _______, _______
+    KC_ESC, KC_1, KC_2, KC_3, KC_4,                                          KC_Y,  KC_U,  KC_I,  KC_O, KC_BSPC,
+    KC_LSFT, KC_5, KC_F1, KC_F2, KC_F3,                                      KC_H,  KC_J,  KC_K,  KC_L,  MY_SCLN,
+    KC_LCTL, KC_F4, KC_F5, KC_F6, KC_M,                                      KC_N,  KC_M,  KC_COMM, KC_DOT, RCTL_T(KC_SLSH),
+                      _______, _______,                                      _______, _______
   ),
 [_EDIT] = LAYOUT_split_3x5_2( /* [> edição <] */
     KC_Q, KC_W, KC_E, KC_R, KC_T,                         KC_Y, KC_U, KC_I, KC_O, KC_P,
     MY_A, MY_S, MY_D, MY_F, KC_G,                         KC_H, MY_J, MY_K, MY_L, MY_SCLN,
     KC_Z, KC_X, KC_C, KC_V, KC_B,                         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH,
-                           KC_MEH,   KC_SPC,   MY_ENT,   MY_BSPC
+                  KC_MEH, KC_SPC,                         MY_ENT, MY_BSPC
   ),
 
 [_COMK] = LAYOUT_split_3x5_2( /* COLEMAK */
     KC_Q, KC_W, KC_F, KC_P, KC_G,              KC_J, KC_L, KC_U, KC_Y, KC_QUOT,
     KC_A, KC_R, KC_S, KC_T, KC_D,              KC_H, KC_N, KC_E, KC_I, KC_O,
     KC_Z, KC_X, KC_C, KC_V, KC_B,              KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH,
-                MY_ESC,   MY_SPC,              MY_ENT,   MY_BSPC
+                  MY_ESC, MY_SPC,              MY_ENT, MY_BSPC
   ),
 
 };
