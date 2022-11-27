@@ -65,17 +65,17 @@ enum custom_keycodes {
 #define IAGD    RALT(KC_I)
 #define UAGD    RALT(KC_U)
 
-#define ZACT KC_Z
+#define ZACT   (KC_Z)
 
 /*qwerty*/
-#define HM_A LT(_ACT,KC_A)
+#define HM_A (KC_A)
 #define HM_S LALT_T(KC_S)
 #define HM_D RSFT_T(KC_D)
 #define HM_F LCTL_T(KC_F)
 #define HM_G RALT_T(KC_G)
 #define HMQ (KC_Q) 
 #define HMW (KC_W)
-#define HMR LGUI_T(KC_R)
+#define HMR (KC_R)
 
 #define HM_H LALT_T(KC_H)
 #define HM_J RCTL_T(KC_J) 
@@ -156,7 +156,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT( /* QWERTY */
     HMQ,   HMW,    HM_E,    HMR,      MT_T,              KC_Y,    KC_U,   KC_I,    KC_O,      KC_P,
     HM_A,  HM_S,   HM_D,    HM_F,      HM_G,              HM_H,    HM_J,  HM_K,    HM_L,      KC_SCLN,
-    ZACT, KC_X,    KC_C,    KC_V,      KC_B,              KC_N,    KC_M,  KC_COMM, KC_DOT, KC_SLSH,
+    ZACT, KC_X,    KC_C,    KC_V,      KC_B,              KC_N,    KC_M,  KC_COMM, KC_DOT, KC_NO,
                            KC_EESC, KC_BSPN,            KC_RSPC, KC_ENBS
   ),
 
@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   KC_1,       KC_2,     KC_3,    KC_4,    KC_5,           KC_6,    KC_7,    KC_8,      KC_9,     KC_0,
   KC_PSLS, KC_ASTR,  KC_MINS, KC_PLUS, KC_UNDS,           KC_LBRC, KC_LT,    KC_EQL,  KC_GT,   KC_RBRC,
-  KC_LCBR, KC_LPRN,  KC_COLN, KC_RPRN, KC_RCBR,           KC_QUOT, KC_DQUO, KC_CIRC, KC_QUES,   KC_GRV,
+  KC_LCBR, KC_LPRN,  KC_COLN, KC_RPRN, KC_RCBR,           KC_QUOT, KC_DQUO, KC_CIRC, KC_QUES,   KC_NO,
                          OSM(MOD_LSFT), KC_TRNS,		    	OSM(MOD_LSFT), KC_PENT
   ),
 
@@ -179,25 +179,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_FUN] = LAYOUT( /* [> LOWER <] */
 
-  KC_F1, KC_F2, KC_F3,  KC_F4,  KC_F5,                                        KC_F6, KC_F7,  KC_F8,KC_F9,  KC_F10,  
-  OSM(MOD_LGUI),OSM(MOD_LALT), OSM(MOD_LSFT), OSM(MOD_LCTL),OSM(MOD_RALT),    KC_F11,  KC_F12,KC_MENU,  KC_MUTE, KC_BSPC,
-  KC_TAB,KC_VOLD,KC_VOLU, KC_TRNS, C(KC_A),                                 KC_F11,  KC_F12,  KC_MENU,  KC_MUTE,  RESET,   
-                                KC_TRNS, QK_BOOT,        KC_MPRV,  KC_MNXT   
-  ),
+ // KC_F1, KC_F2, KC_F3,  KC_F4,  KC_F5,                                        KC_F6, KC_F7,  KC_F8,KC_F9,  KC_F10,  
+ // OSM(MOD_LGUI),OSM(MOD_LALT), OSM(MOD_LSFT), OSM(MOD_LCTL),OSM(MOD_RALT),    KC_F11,  KC_F12,KC_MENU,  KC_MUTE, KC_BSPC,
+ // KC_TAB,KC_VOLD,KC_VOLU, KC_TRNS, C(KC_A),                                 KC_F11,  KC_F12,  KC_MENU,  KC_MUTE,  RESET,   
+  //                              KC_TRNS, QK_BOOT,        KC_MPRV,  KC_MNXT   
+ 
+
+ KC_F1, KC_F2, KC_F3,  KC_F4,  KC_F5,                                        AVER, AAGD,   OAGD,   EAGD,    IAGD,  
+ KC_F6, KC_F7,  KC_F8,KC_F9,  KC_F10,                                        CAO,  SS_ACIRC,  OCIRC,  ECIRC, UAGD ,
+ KC_F11,  KC_F12,KC_MENU,  KC_MUTE, C(KC_A),                                 AO,   SS_ATIL,   OTIL, COE, KC_NO,   
+                                KC_TRNS,KC_TRNS,        CEDILHA, KC_BSPC  
+
+ ),
+
 
    
   [_SYM] = LAYOUT(
     KC_QUOT, KC_DQUO, KC_CIRC, KC_QUES, KC_GRV,   /**/ KC_TRNS,        EAGD,      CAO,      AO, CEDILHA,
     KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  /**/ KC_LCBR, KC_LPRN,  KC_COLN, KC_RPRN, KC_RCBR,
-    KC_BSLS, KC_TILD, KC_PIPE, KC_SCLN, KC_AMPR,  /**/ KC_SLSH, KC_ASTR,  ASPAS, KC_PLUS, KC_UNDS,
+    KC_BSLS, KC_TILD, KC_PIPE, KC_SCLN, KC_AMPR,  /**/ KC_SLSH, KC_ASTR,  KC_UNDS, KC_PLUS, KC_NO,
                               MO(_FUN),      CAO,     _______, _______
 
   ),
 
   [_EXT] = LAYOUT( /* COLEMAK */
     KC_ESC, KC_WL,    KC_WD,  KC_WR, KC_TRNS,                                  KC_VOLU  ,KC_VOLU, KC_UP,KC_VOLD,KC_CAPS,
-    OSM(MOD_LGUI),OSM(MOD_LALT), OSM(MOD_LSFT), OSM(MOD_LCTL),OSM(MOD_RALT),   KC_VOLD, KC_LEFT, KC_DOWN,KC_RIGHT,KC_DEL,
-    KC_PSCR ,C(KC_Z), C(KC_X), TG(_BF),  TG(_VAVA),                            KC_ENT,KC_BSPC , CEDILHA,KC_PGUP,KC_PGDN,
+    G(KC_LEFT),G(KC_DOWN),G(KC_UP), G(KC_RIGHT),KC_MUTE,                       KC_VOLD, KC_LEFT, KC_DOWN,KC_RIGHT,KC_DEL,
+    KC_PSCR ,C(KC_Z), C(KC_X),KC_TRNS,   KC_TRNS,                             KC_ENT,KC_BSPC , CEDILHA,KC_PGUP,KC_NO,
                                KC_TRNS,   KC_TRNS,                             KC_ENT, MO(_FUN)
                     
   ),
@@ -294,10 +302,20 @@ COMBO_CLOSE1,
 COMBO_RESET,
 COMBO_FUN,
 COMBO_MOUSE,
-COMBO_GAME,
+COMBO_BF,
+COMBO_VAVA,
+COMBO_LOCK,
+COMBO_LGUI,
+COMBO_RGUI,
 };
-const uint16_t PROGMEM combo_mouse[] = { KC_EESC, KC_BSPN, COMBO_END};
-const uint16_t PROGMEM combo_game[] = {MT_T, KC_B, COMBO_END};
+
+
+const uint16_t PROGMEM combo_rgui[] = { KC_DOT, KC_SLSH, COMBO_END};
+const uint16_t PROGMEM combo_lgui[] = { ZACT, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_lock[] = { KC_VOLU, KC_UP,KC_VOLD, COMBO_END};
+const uint16_t PROGMEM combo_mouse[] = { KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_bf[] = {HM_A, HM_F,KC_BSPN,COMBO_END};
+const uint16_t PROGMEM combo_vava[] = {HM_A, HM_F,KC_EESC, COMBO_END};
 const uint16_t PROGMEM combo_fun[] = { HMQ,HMW,HM_E,KC_R,KC_BSPN, COMBO_END};
 const uint16_t PROGMEM combo_1[] = {KC_Q, HM_A, COMBO_END};
 const uint16_t PROGMEM combo_2[] = {KC_W, HM_S, COMBO_END};
@@ -331,9 +349,13 @@ const uint16_t PROGMEM combo_close1[] = {HMW,HM_E,HMR, COMBO_END};
 
 
 combo_t key_combos[COMBO_COUNT] = {
-  
+    
+    [COMBO_RGUI] = COMBO(combo_rgui, KC_RGUI),
+    [COMBO_LGUI] = COMBO(combo_lgui, KC_LGUI),
+    [COMBO_LOCK] = COMBO(combo_lock, G(KC_L)),
     [COMBO_FUN] = COMBO(combo_fun, MO(_FUN)),
-    [COMBO_GAME] = COMBO(combo_fun, TG(_BF)),
+    [COMBO_BF] = COMBO(combo_bf, TG(_BF)),
+    [COMBO_VAVA] = COMBO(combo_vava, TG(_VAVA)),
     [COMBO_MOUSE] = COMBO(combo_mouse, MO(_MOUSE)),
     [COMBO_1] = COMBO(combo_1, KC_1),
     [COMBO_2] = COMBO(combo_2, KC_2),
